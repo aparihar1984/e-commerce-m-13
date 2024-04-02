@@ -3,11 +3,13 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
+// GET all drivers
 router.get('/', async (req, res) => {
   // find all tags
   // be sure to include its associated Product data
   try {
     const tagData = await Tag.findAll({
+      // If product isn't included, then you'll only get the Tag
       include: [{ model: Product }]
     });
     res.status(200).json(tagData);
@@ -16,6 +18,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET a single driver
 router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
@@ -32,6 +35,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// CREATE a card
 router.post('/', async (req, res) => {
   // create a new tag
   try {
@@ -42,6 +46,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// ALTER a card
 router.put('/:id', async (req, res) => {
   // update a tag's name by its `id` value
   try {
@@ -65,6 +70,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// DELETE a card
 router.delete('/:id', async (req, res) => {
   // delete on tag by its `id` value
   try {

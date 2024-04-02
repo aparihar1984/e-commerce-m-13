@@ -111,6 +111,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// DELETE a product
 router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   try {
