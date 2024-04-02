@@ -40,9 +40,11 @@ Product.init(
         }
     },
     // Defining the category_id column
+    // Foreign Key
     category_id: {
         type: DataTypes.INTEGER,
         references: {
+            // This references the `category` model, which we set in `Category.js` as its `modelName` property
             model: "category",
             key: "id"
         }

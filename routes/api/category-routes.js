@@ -3,11 +3,13 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
+// GET all drivers
 router.get('/', async (req, res) => {
   // find all categories
   // be sure to include its associated Products
   try {
     const categoryData = await Category.findAll({
+      // If product isn't included, then you'll only get the Category
       include: [{ model: Product }]
     });
     res.status(200).json(categoryData);
@@ -16,6 +18,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET a single driver
 router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
@@ -32,6 +35,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// CREATE a card
 router.post('/', async (req, res) => {
   // create a new category
   try {
@@ -42,6 +46,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// ALTER a card
 router.put('/:id', async (req, res) => {
   // update a category by its `id` value
   try {
@@ -65,6 +70,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// DELETE a card
 router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
   try {

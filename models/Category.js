@@ -21,6 +21,7 @@ Category.init(
   {
     sequelize,
     timestamps: false,
+    // freezeTableName must be set to true, otherwise sequelize will convert it to the plural value.
     freezeTableName: true,
     underscored: true,
     modelName: 'category',
